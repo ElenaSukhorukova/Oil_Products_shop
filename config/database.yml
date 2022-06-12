@@ -24,16 +24,12 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
 
-development:
-  # <<: *default
-  adapter: postgresql
-  encoding: unicode
-
-  database: Oil_products_development
-  username: <%= ENV['DATABASE_NAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  # port: 5432
-  host: <%= ENV['DATABASE_HOST'] %>
+  development:
+  <<: *default    
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -91,5 +87,5 @@ production:
   encoding: unicode
   pool: 5
   database: Oil_products_production
-  username: Oil_products
-  password: <%= ENV["APP_DATABASE_PASSWORD"] %>
+  username: <%= ENV['USER_NAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
