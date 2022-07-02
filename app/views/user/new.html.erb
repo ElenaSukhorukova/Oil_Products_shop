@@ -1,3 +1,13 @@
 <h1>Creating new user.</h1>
 <p>If you don't have login and password you need to make registration.</p>
 
+<%= form_for :user, method: :post, url: 'user/new' do |f| %>
+	<%= f.label :username, 'Create your login:' %><br \><br \>
+	<%= f.text_field :username %><br /><br \>
+	<%= f.label :password, 'Create your password:' %><br /><br \>
+	<%= f.password_field(:password, size: 20) %><br /><br \>
+	<%= f.label :role, 'Chose your role:' %><br /><br \>
+	<%= select(:post, :role, %w[ director sales\ manager supplier logistican storekeeper]) %><br />
+	<br />
+	<%= f.submit %>
+<% end %>
