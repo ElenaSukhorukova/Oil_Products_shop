@@ -4,6 +4,8 @@
 <%= form_for :user, method: :post, url: 'user/new' do |f| %>
 	<%= f.label :username, 'Create your login:' %><br \><br \>
 	<%= f.text_field :username %><br /><br \>
+	<%= f.label :email, 'Enter your email:' %><br \><br \>
+	<%= f.text_field :email %><br /><br \>
 	<%= f.label :password, 'Create your password:' %><br /><br \>
 	<%= f.password_field(:password, size: 20) %><br /><br \>
 	<%= f.label :role, 'Chose your role:' %><br /><br \>
