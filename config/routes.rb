@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  get 'user/new'
-  post 'user/new'
   get 'home/index'
   root 'home#index'
 
-  # resources
+  resource :users, only: [:new, :create]
+
+  get "/signup", to: "users#new", as: "signup"
+  post "/signup", to: "users#create"
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
